@@ -41,7 +41,7 @@ public class FuelDrumRenderer extends TileEntitySpecialRenderer<TileEntityFuelDr
     {
         if(tank.getFluid() == null)
             return;
-
+    
         GlStateManager.pushMatrix();
         GlStateManager.translate(x, y, z);
         GlStateManager.glNormal3f(0.0F, 1.0F, 0.0F);
@@ -107,9 +107,9 @@ public class FuelDrumRenderer extends TileEntitySpecialRenderer<TileEntityFuelDr
         GlStateManager.enableTexture2D();
 
         GlStateManager.scale(0.5, 0.5, 0.5);
-        String name = stack.getLocalizedName();
+        String name = stack.getLocalizedName() + " " + tank.getFluidAmount() + "mB";
         int nameWidth = fontRendererIn.getStringWidth(name) / 2;
-        fontRendererIn.drawString(stack.getLocalizedName(), -nameWidth, -14, -1);
+        fontRendererIn.drawString(name, -nameWidth, -14, -1);
 
         GlStateManager.enableLighting();
         GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);

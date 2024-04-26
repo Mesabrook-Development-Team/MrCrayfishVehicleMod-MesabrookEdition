@@ -30,6 +30,8 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHandSide;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
+import net.minecraftforge.fluids.FluidRegistry;
+
 import org.lwjgl.opengl.GL11;
 
 import javax.vecmath.Matrix4d;
@@ -273,8 +275,18 @@ public class GasPumpRenderer extends TileEntitySpecialRenderer<TileEntityGasPump
                     GlStateManager.glNormal3f(0.0F, 0.0F, -0.010416667F);
                     GlStateManager.depthMask(false);
                     FontRenderer fontRenderer = Minecraft.getMinecraft().fontRenderer;
-                    int width = fontRenderer.getStringWidth("Fuelium");
-                    fontRenderer.drawString("Fuelium", -width / 2, 10, 9761325);
+
+                    try
+                    {
+                        int width = fontRenderer.getStringWidth(gasPump.getTank().getFluid().getLocalizedName());
+                        fontRenderer.drawString(gasPump.getTank().getFluid().getLocalizedName(), -width / 2, 10, 9761325);
+                    }
+                    catch(Exception ex)
+                    {
+                        int width = fontRenderer.getStringWidth("Empty");
+                        fontRenderer.drawString("Empty", -width / 2, 10, 9761325);
+                    }
+                    
                     GlStateManager.depthMask(true);
                 }
                 GlStateManager.popMatrix();

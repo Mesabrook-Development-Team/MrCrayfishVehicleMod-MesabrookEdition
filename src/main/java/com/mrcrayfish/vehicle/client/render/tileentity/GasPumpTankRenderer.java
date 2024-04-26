@@ -15,6 +15,8 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fluids.FluidRegistry;
+
 import org.lwjgl.opengl.GL11;
 
 /**
@@ -68,7 +70,7 @@ public class GasPumpTankRenderer extends TileEntitySpecialRenderer<TileEntityGas
 
             Minecraft.getMinecraft().getTextureManager().bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
 
-            int light = getWorld().getCombinedLight(te.getPos(), ModFluids.FUELIUM.getLuminosity());
+            int light = getWorld().getCombinedLight(te.getPos(), FluidRegistry.getFluid("gasoline").getLuminosity());
             int lightX = light >> 0x10 & 0xFFFF;
             int lightY = light & 0xFFFF;
 
