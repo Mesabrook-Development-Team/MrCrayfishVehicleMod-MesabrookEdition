@@ -11,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.Constants;
 
@@ -43,14 +44,15 @@ public class ItemJerryCan extends Item
     {
         if(GuiScreen.isShiftKeyDown())
         {
-            String info = I18n.format(this.getUnlocalizedName() + ".info");
+            String info = "A handheld can that can carry various fuels and refuel vehicles. To refill, right-click a Fuel Drum filled with either Gasoline, Diesel, or Biodiesel";
             tooltip.addAll(Minecraft.getMinecraft().fontRenderer.listFormattedStringToWidth(info, 150));
         }
         else
         {
             String currentFuel = TextFormatting.RESET + FUEL_FORMAT.format(getCurrentFuel(stack) / (float) getCapacity(stack));
-            tooltip.add(TextFormatting.AQUA + TextFormatting.BOLD.toString() + I18n.format(this.getUnlocalizedName() + ".fuel", currentFuel));
-            tooltip.add(TextFormatting.YELLOW + I18n.format("vehicle.info_help"));
+            tooltip.add(new TextComponentString(TextFormatting.AQUA + TextFormatting.BOLD.toString() + "Fuel: " + currentFuel).getFormattedText());
+            tooltip.add(new TextComponentString(TextFormatting.YELLOW + "Hold SHIFT for more Info").getFormattedText());
+
         }
     }
 
