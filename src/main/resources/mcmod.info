@@ -1,16 +1,16 @@
 [
 {
   "modid": "vehicle",
-  "name": "MrCrayfish's Vehicle Mod",
-  "description": "A mod developed during Mod Week Season 2. Adds in working Vehicles that you can actually drive!",
-  "version": "0.44.1",
+  "name": "MrCrayfish's Vehicle Mod - Mesabrook Edition",
+  "description": "A Mesabrook-specific fork of MrCrayfish's Vehicle Mod.",
+  "version": "0.44.1-0.0.1",
   "mcversion": "1.12.2",
-  "url": "https://mrcrayfish.com",
+  "url": "https://mesabrook.com",
   "updateUrl": "",
-  "authorList": ["MrCrayfish"],
-  "credits": "Phylogeny https://github.com/Phylogeny",
-  "logoFile": "",
+  "authorList": ["RavenholmZombie", "CSX8600"],
+  "credits": "MrCrayfish, original creator of the MrCrayfish's Vehicles Mod.",
+  "logoFile": "assets/logo.png",
   "screenshots": [],
-  "dependencies": []
+  "dependencies": ["immersiveengineering", "immersivepetroleum", "obfuscate"]
 }
 ]
