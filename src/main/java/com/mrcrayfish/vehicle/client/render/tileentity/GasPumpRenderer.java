@@ -275,8 +275,8 @@ public class GasPumpRenderer extends TileEntitySpecialRenderer<TileEntityGasPump
                     GlStateManager.glNormal3f(0.0F, 0.0F, -0.010416667F);
                     GlStateManager.depthMask(false);
                     FontRenderer fontRenderer = Minecraft.getMinecraft().fontRenderer;
-                    int width = fontRenderer.getStringWidth(FluidRegistry.getFluid("gasoline").getName());
-                    fontRenderer.drawString(FluidRegistry.getFluid("gasoline").getName(), -width / 2, 10, 9761325);
+                    int width = fontRenderer.getStringWidth(gasPump.getTank().getFluid().getLocalizedName());
+                    fontRenderer.drawString(gasPump.getTank().getFluid().getLocalizedName(), -width / 2, 10, 9761325);
                     GlStateManager.depthMask(true);
                 }
                 GlStateManager.popMatrix();
