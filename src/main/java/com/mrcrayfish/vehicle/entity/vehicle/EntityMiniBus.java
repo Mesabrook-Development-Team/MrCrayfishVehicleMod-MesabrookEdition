@@ -15,7 +15,7 @@ public class EntityMiniBus extends EntityLandVehicle implements EntityRaytracer.
     public EntityMiniBus(World worldIn)
     {
         super(worldIn);
-        this.setMaxSpeed(15F);
+        this.setMaxSpeed(16F);
         this.setTurnSensitivity(2);
         this.setFuelCapacity(30000F);
         this.setFuelConsumption(0.375F);
