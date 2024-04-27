@@ -21,6 +21,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -115,6 +116,32 @@ public class BlockFuelDrum extends BlockRotatedObject
                         }
                     }
                 }
+            }
+            else
+            {
+            	TileEntity tileEntity = worldIn.getTileEntity(pos);
+            	if(tileEntity != null && tileEntity.hasCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null))
+            	{
+            		IFluidHandler handler = tileEntity.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
+            		
+            		if(handler != null)
+            		{
+            			if(handler instanceof FluidTank)
+            			{
+            				FluidTank tank = (FluidTank) handler;
+            				if(tank.getFluidAmount() == 0)
+            				{
+            					playerIn.sendMessage(new TextComponentString("Drum is empty."));
+            				}
+            				else
+            				{
+            					String fuelName = tank.getFluid().getLocalizedName();
+            					int fuelAmount = tank.getFluidAmount();
+            					playerIn.sendMessage(new TextComponentString(fuelName + ": " + fuelAmount + "mB"));
+            				}
+            			}
+            		}
+            	}
             }
         }
         return true;
