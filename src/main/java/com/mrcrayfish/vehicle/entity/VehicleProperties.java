@@ -57,6 +57,28 @@ public class VehicleProperties
         properties.setRearAxelVec(0, -12);
         properties.addSeat(new Seat(new Vec3d(0, 7.5, -10), true));
         VehicleProperties.setProperties(EntityForklift.class, properties);
+        
+        /* Brick */
+        properties = new VehicleProperties();
+        properties.setAxleOffset(-1.7F);
+        properties.setWheelOffset(3.5F);
+        properties.setBodyPosition(new PartPosition(0.9));
+        properties.setFuelPortPosition(new PartPosition(19, 11, -18.9, 0, 90, 0, 0.25));
+        properties.setHeldOffset(new Vec3d(3.0, 1.0, 0.0));
+        properties.setTowBarPosition(new Vec3d(0.0, 0.0, -24.5));
+        properties.setDisplayPosition(new PartPosition(1.35F));
+        properties.addWheel(Wheel.Side.LEFT, Wheel.Position.FRONT, 15F, 18.5F, 1.5F, true, true);
+        properties.addWheel(Wheel.Side.RIGHT, Wheel.Position.FRONT, 15F, 18.5F, 1.5F, true, true);
+        properties.addWheel(Wheel.Side.LEFT, Wheel.Position.REAR, 15F, -18.5F, 1.5F, false, true);
+        properties.addWheel(Wheel.Side.RIGHT, Wheel.Position.REAR, 15F, -18.5F, 1.5F, false, true);
+        properties.setFrontAxelVec(0, 12);
+        properties.setRearAxelVec(0, -12);
+        properties.addSeat(new Seat(new Vec3d(-10, 3, 2), true));
+        properties.addSeat(new Seat(new Vec3d(10, 3, 2), false));
+        properties.addSeat(new Seat(new Vec3d(-10, 3, -13), false));
+        properties.addSeat(new Seat(new Vec3d(10, 3, -13), false));
+
+        VehicleProperties.setProperties(EntityBrickmobile.class, properties);
 
         /* Aluminum Boat */
         properties = new VehicleProperties();
@@ -283,11 +305,12 @@ public class VehicleProperties
         properties.addWheel(Wheel.Side.LEFT, Wheel.Position.REAR, 10.0F, -14.5F, 2.25F, true, true);
         properties.addWheel(Wheel.Side.RIGHT, Wheel.Position.REAR, 10.0F, -14.5F, 2.25F, true, true);
         properties.setFrontAxelVec(0, 14.5);
-        properties.setRearAxelVec(0, -14.5);  
+        properties.setRearAxelVec(0, -14.5);   
         properties.addSeat(new Seat(new Vec3d(-5, 4, -3), true));
         properties.addSeat(new Seat(new Vec3d(5, 4, -3)));
         properties.addSeat(new Seat(new Vec3d(5, 11.5, -14.5)));
         properties.addSeat(new Seat(new Vec3d(-5, 3.5, -18.9)));
+        properties.setTowBarPosition(new Vec3d(0.0, -0.0, -36.0));
         VehicleProperties.setProperties(EntityOffRoader.class, properties);
 
         /* Shopping Cart */
