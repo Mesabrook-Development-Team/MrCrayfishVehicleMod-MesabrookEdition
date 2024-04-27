@@ -102,6 +102,7 @@ entity.vehicle.tractor.name=Tractor
 entity.vehicle.mini_bus.name=Mini Bus
 entity.vehicle.dirt_bike=Dirt Bike
 entity.vehicle.forklift.name=Forklift
+entity.vehicle.brickmobile.name=Brick
 
 vehicle.config.title=MrCrayfish's Vehicle Mod Config
 vehicle.config.client=Client
