@@ -109,6 +109,15 @@ public class VehicleRecipes
         builder.addMaterial(new ItemStack(Items.REDSTONE, 12));
         builder.addMaterial(new ItemStack(ModItems.PANEL, 16));
         mapBuilder.put(EntityMiniBus.class, builder.build());
+        
+        /* Forklift */
+        builder = new Builder();
+        builder.addMaterial(new ItemStack(Items.IRON_INGOT, 128));
+        builder.addMaterial(new ItemStack(Blocks.WOOL, 5, EnumDyeColor.GRAY.getMetadata()));
+        builder.addMaterial(new ItemStack(Blocks.GLASS_PANE, 9));
+        builder.addMaterial(new ItemStack(Items.REDSTONE, 12));
+        builder.addMaterial(new ItemStack(ModItems.PANEL, 16));
+        mapBuilder.put(EntityForklift.class, builder.build());
 
         /* Moped */
         builder = new Builder();

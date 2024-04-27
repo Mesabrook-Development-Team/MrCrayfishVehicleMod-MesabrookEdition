@@ -153,8 +153,8 @@ public class ClientEvents
                     {
                         EntityPoweredVehicle vehicle = (EntityPoweredVehicle) entity;
 
-                        String speed = new DecimalFormat("0.0").format(vehicle.getKilometersPreHour());
-                        mc.fontRenderer.drawStringWithShadow(TextFormatting.BOLD + "Speed: " + TextFormatting.YELLOW + speed, 10, 10, Color.WHITE.getRGB());
+                        String speed = new DecimalFormat("0.0").format(vehicle.getMilesPerHour());
+                        mc.fontRenderer.drawStringWithShadow(TextFormatting.BOLD + "Speed: " + TextFormatting.YELLOW + speed + " MPH", 10, 10, Color.WHITE.getRGB());
 
                         if(vehicle.requiresFuel())
                         {

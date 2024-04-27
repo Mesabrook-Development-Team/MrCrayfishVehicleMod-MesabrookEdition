@@ -359,6 +359,22 @@ public class EntityRaytracer
                 MatrixTransformation.createTranslation(0.0, 0.5, 1.35));
         createFuelablePartTransforms(SpecialModels.FUEL_PORT_CLOSED, EntitySmartCar.class, smartCarParts, smartCarTransformGlobal);
         registerEntityStatic(EntitySmartCar.class, smartCarParts);
+        
+        // Forklift
+        List<MatrixTransformation> forkLiftTransformGlobal = Lists.newArrayList();
+        createBodyTransforms(forkLiftTransformGlobal, EntityForklift.class);
+        HashMap<RayTracePart, List<MatrixTransformation>> forkLiftParts = Maps.newHashMap();
+        createTransformListForPart(SpecialModels.FORKLIFT, forkLiftParts, forkLiftTransformGlobal);
+        createTransformListForPart(SpecialModels.GO_KART_STEERING_WHEEL, forkLiftParts, forkLiftTransformGlobal,
+        		MatrixTransformation.createTranslation(-0.2825F, 0.225F, 1.0625F),
+                MatrixTransformation.createRotation(-67.5F, 1, 0, 0),
+                MatrixTransformation.createTranslation(0.0F, -0.02F, 0.0F),
+                MatrixTransformation.createScale(0.75F));
+        createTransformListForPart(SpecialModels.TOW_BAR, forkLiftParts,
+                MatrixTransformation.createRotation(180, 0, 1, 0),
+                MatrixTransformation.createTranslation(0.0, 0.5, 1.35));
+        createFuelablePartTransforms(SpecialModels.FUEL_PORT_CLOSED, EntityForklift.class, forkLiftParts, forkLiftTransformGlobal);
+        registerEntityStatic(EntityForklift.class, forkLiftParts);
 
         // Speed boat
         List<MatrixTransformation> speedBoatTransformGlobal = Lists.newArrayList();
@@ -446,6 +462,7 @@ public class EntityRaytracer
         createKeyPortTransforms(SpecialModels.KEY_HOLE, EntityTractor.class, tractorParts, tractorTransformGlobal);
         registerEntityStatic(EntityTractor.class, tractorParts);
 
+        // Mini Bus
         List<MatrixTransformation> miniBusTransformGlobal = Lists.newArrayList();
         createBodyTransforms(miniBusTransformGlobal, EntityMiniBus.class);
         HashMap<RayTracePart, List<MatrixTransformation>> miniBusParts = Maps.newHashMap();

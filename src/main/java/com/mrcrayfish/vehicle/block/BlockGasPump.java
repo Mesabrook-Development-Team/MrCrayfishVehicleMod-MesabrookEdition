@@ -25,6 +25,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTank;
 import net.minecraftforge.fluids.FluidUtil;
@@ -116,7 +117,7 @@ public class BlockGasPump extends BlockRotatedObject
                             if(handler instanceof FluidTank)
                             {
                                 FluidTank tank = (FluidTank) handler;
-                                if(tank.getFluid() != null && tank.getFluid().getFluid() != ModFluids.FUELIUM)
+                                if(tank.getFluid() != null && tank.getFluid().getFluid() != FluidRegistry.getFluid("gasoline") && tank.getFluid().getFluid() != FluidRegistry.getFluid("diesel") && tank.getFluid().getFluid() != FluidRegistry.getFluid("biodiesel"))
                                 {
                                     return false;
                                 }

@@ -4,34 +4,41 @@ import com.mrcrayfish.vehicle.client.EntityRaytracer;
 import com.mrcrayfish.vehicle.entity.EngineType;
 import com.mrcrayfish.vehicle.entity.EntityLandVehicle;
 import com.mrcrayfish.vehicle.init.ModSounds;
+
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
 
-/**
- * Author: MrCrayfish
- */
-public class EntityMiniBus extends EntityLandVehicle implements EntityRaytracer.IEntityRaytraceable
+public class EntityForklift extends EntityLandVehicle implements EntityRaytracer.IEntityRaytraceable
 {
-    public EntityMiniBus(World worldIn)
-    {
-        super(worldIn);
-        this.setMaxSpeed(17F);
-        this.setTurnSensitivity(2);
+
+	public EntityForklift(World worldIn) 
+	{
+		super(worldIn);
+        this.setMaxSpeed(5F);
+        this.setTurnSensitivity(4);
         this.setFuelCapacity(30000F);
         this.setFuelConsumption(0.375F);
+        this.stepHeight = 1F;
+	}
+	
+    @Override
+    public AxisAlignedBB getRenderBoundingBox()
+    {
+        return this.getEntityBoundingBox().grow(3.5);
     }
 
-    @Override
-    public SoundEvent getMovingSound()
-    {
-        return ModSounds.MINI_BUS_ENGINE_MONO;
-    }
+	@Override
+	public SoundEvent getMovingSound() 
+	{
+		return ModSounds.ELECTRIC_ENGINE_MONO;
+	}
 
-    @Override
-    public SoundEvent getRidingSound()
-    {
-        return ModSounds.MINI_BUS_ENGINE_STEREO;
-    }
+	@Override
+	public SoundEvent getRidingSound() 
+	{
+		return ModSounds.ELECTRIC_ENGINE_STEREO;
+	}
 
     @Override
     public float getMinEnginePitch()
@@ -48,18 +55,25 @@ public class EntityMiniBus extends EntityLandVehicle implements EntityRaytracer.
     @Override
     public EngineType getEngineType()
     {
-        return EngineType.LARGE_MOTOR;
+        return EngineType.ELECTRIC_MOTOR;
     }
 
     @Override
     public boolean canBeColored()
     {
-        return true;
+        return false;
     }
 
     @Override
     public boolean canTowTrailer()
     {
-        return true;
+        return false;
     }
+    
+    @Override
+    public boolean canWheelie()
+    {
+        return false;
+    }
+	
 }

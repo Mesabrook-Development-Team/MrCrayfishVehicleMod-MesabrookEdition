@@ -69,6 +69,7 @@ public enum SpecialModels
     KEY_HOLE("key_hole"),
     COUCH_HELICOPTER_ARM("couch_helicopter_arm"),
     COUCH_HELICOPTER_SKID("couch_helicopter_skid"),
+    FORKLIFT("forklift_body"),
 
     COUCH(new ModelResourceLocation("cfm:couch", "colour=14,facing=east,type=both"), false),
     BLADE(new ModelResourceLocation("cfm:ceiling_fan_fans", "inventory"), false),

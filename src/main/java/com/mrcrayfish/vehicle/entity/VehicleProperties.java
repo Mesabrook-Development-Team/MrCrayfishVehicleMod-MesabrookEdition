@@ -39,6 +39,24 @@ public class VehicleProperties
     public static void register()
     {
         VehicleProperties properties;
+        
+        /* Forklift */
+        properties = new VehicleProperties();
+        properties.setAxleOffset(-1.7F);
+        properties.setWheelOffset(3.5F);
+        properties.setBodyPosition(new PartPosition(1.25));
+        properties.setFuelPortPosition(new PartPosition(6.9, 8.8, -17.9, 0, 90, 0, 0.25));
+        properties.setHeldOffset(new Vec3d(3.0, 1.0, 0.0));
+        properties.setTowBarPosition(new Vec3d(0.0, 0.0, -24.5));
+        properties.setDisplayPosition(new PartPosition(1.35F));
+        properties.addWheel(Wheel.Side.LEFT, Wheel.Position.FRONT, 5F, 6F, 1.5F, true, true);
+        properties.addWheel(Wheel.Side.RIGHT, Wheel.Position.FRONT, 5F, 6F, 1.5F, true, true);
+        properties.addWheel(Wheel.Side.LEFT, Wheel.Position.REAR, 5F, -18F, 1.5F, false, true);
+        properties.addWheel(Wheel.Side.RIGHT, Wheel.Position.REAR, 5F, -18F, 1.5F, false, true);
+        properties.setFrontAxelVec(0, 12);
+        properties.setRearAxelVec(0, -12);
+        properties.addSeat(new Seat(new Vec3d(0, 7.5, -10), true));
+        VehicleProperties.setProperties(EntityForklift.class, properties);
 
         /* Aluminum Boat */
         properties = new VehicleProperties();

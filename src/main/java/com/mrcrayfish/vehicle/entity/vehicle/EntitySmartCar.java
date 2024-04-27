@@ -15,7 +15,7 @@ public class EntitySmartCar extends EntityLandVehicle implements IEntityRaytrace
     public EntitySmartCar(World worldIn)
     {
         super(worldIn);
-        this.setMaxSpeed(15F);
+        this.setMaxSpeed(69F);
         this.setTurnSensitivity(12);
         this.setSize(1.85F, 1.15F);
         this.stepHeight = 1F;

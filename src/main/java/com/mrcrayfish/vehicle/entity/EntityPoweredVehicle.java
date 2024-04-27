@@ -860,6 +860,13 @@ public abstract class EntityPoweredVehicle extends EntityVehicle implements IInv
     {
         return Math.sqrt(Math.pow(this.posX - this.prevPosX, 2) + Math.pow(this.posY - this.prevPosY, 2) + Math.pow(this.posZ - this.prevPosZ, 2)) * 20;
     }
+    
+    public double getMilesPerHour()
+    {
+        double kilometersPerHour = Math.sqrt(Math.pow(this.posX - this.prevPosX, 2) + Math.pow(this.posY - this.prevPosY, 2) + Math.pow(this.posZ - this.prevPosZ, 2)) * 20;
+        double milesPerHour = kilometersPerHour * 0.621371;
+        return milesPerHour;
+    }
 
     public void setTurnDirection(TurnDirection turnDirection)
     {
