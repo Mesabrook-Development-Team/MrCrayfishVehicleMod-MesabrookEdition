@@ -55,6 +55,12 @@ public class EntityOffRoader extends EntityLandVehicle implements EntityRaytrace
     {
         return true;
     }
+    
+    @Override
+    public boolean canTowTrailer()
+    {
+        return true;
+    }
 
     @Override
     public boolean canMountTrailer()
