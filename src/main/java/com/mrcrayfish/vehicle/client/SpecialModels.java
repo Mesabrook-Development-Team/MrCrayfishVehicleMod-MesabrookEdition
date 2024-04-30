@@ -71,6 +71,10 @@ public enum SpecialModels
     COUCH_HELICOPTER_SKID("couch_helicopter_skid"),
     FORKLIFT("forklift_body"),
     BRICKMOBILE("brick_body"),
+    FIGHTER_JET_BODY("fighter_jet_body"),
+    FIGHTER_JET_WING("fighter_jet_wing"),
+    FIGHTER_JET_WHEEL_COVER("fighter_jet_wheel_cover"),
+    FIGHTER_JET_LEG("fighter_jet_leg"),
 
     COUCH(new ModelResourceLocation("cfm:couch", "colour=14,facing=east,type=both"), false),
     BLADE(new ModelResourceLocation("cfm:ceiling_fan_fans", "inventory"), false),

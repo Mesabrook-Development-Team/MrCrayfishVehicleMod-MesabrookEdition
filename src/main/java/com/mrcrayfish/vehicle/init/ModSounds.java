@@ -51,6 +51,8 @@ public class ModSounds
     public static final SoundEvent MINI_BUS_ENGINE_STEREO = null;
     public static final SoundEvent DIRT_BIKE_ENGINE_MONO = null;
     public static final SoundEvent DIRT_BIKE_ENGINE_STEREO = null;
+    public static final SoundEvent JET_ENGINE_MONO = null;
+    public static final SoundEvent JET_ENGINE_STEREO = null;
 
     public static void register()
     {
@@ -93,6 +95,8 @@ public class ModSounds
         register(SoundNames.MINI_BUS_ENGINE_STEREO);
         register(SoundNames.DIRT_BIKE_ENGINE_MONO);
         register(SoundNames.DIRT_BIKE_ENGINE_STEREO);
+        register(SoundNames.JET_ENGINE_MONO);
+        register(SoundNames.JET_ENGINE_STEREO);
     }
 
     private static void register(String soundNameIn)

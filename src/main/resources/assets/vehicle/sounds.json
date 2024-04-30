@@ -1,4 +1,10 @@
 {
+    "jet_engine_mono": {
+        "sounds": [ {"name": "vehicle:jet_engine_mono"}]
+    },
+    "jet_engine_stereo": {
+        "sounds": [ {"name": "vehicle:jet_engine_stereo"}]
+    },
     "horn_mono": {
         "sounds": [ {"name": "vehicle:horn_mono"}]
     },

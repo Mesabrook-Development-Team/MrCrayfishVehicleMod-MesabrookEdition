@@ -6,13 +6,17 @@ import com.mrcrayfish.vehicle.entity.EntityVehicle;
 import com.mrcrayfish.vehicle.entity.trailer.*;
 import com.mrcrayfish.vehicle.entity.vehicle.*;
 import com.mrcrayfish.vehicle.init.ModItems;
+import com.mrcrayfish.vehicle.util.OreDictionaryHelper;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 import javax.annotation.Nullable;
 import java.util.LinkedHashSet;
@@ -176,6 +180,14 @@ public class VehicleRecipes
         builder.addMaterial(new ItemStack(Items.REDSTONE, 18));
         builder.addMaterial(new ItemStack(ModItems.PANEL, 32));
         mapBuilder.put(EntitySportsPlane.class, builder.build());
+        
+        /* Fighter Jet */
+        builder = new Builder();
+        builder.addMaterial(OreDictionaryHelper.getItemStackFromOreDictionary("ingotSteel", 180));
+        builder.addMaterial(new ItemStack(Blocks.GLASS_PANE, 16));
+        builder.addMaterial(new ItemStack(Items.REDSTONE, 18));
+        builder.addMaterial(new ItemStack(ModItems.PANEL, 32));
+        mapBuilder.put(EntityFighterJet.class, builder.build());
 
         /* Tractor */
         builder = new Builder();

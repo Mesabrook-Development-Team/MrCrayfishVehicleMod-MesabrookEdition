@@ -436,6 +436,39 @@ public class EntityRaytracer
                 MatrixTransformation.createTranslation(0.46875, -0.1875, 0.125),
                 MatrixTransformation.createRotation(100, 0, 1, 0));
         registerEntityStatic(EntitySportsPlane.class, sportsPlaneParts);
+        
+        // Fighter Jet
+        List<MatrixTransformation> fighterJetTransformGlobal = Lists.newArrayList();
+        createBodyTransforms(fighterJetTransformGlobal, EntityFighterJet.class);
+        HashMap<RayTracePart, List<MatrixTransformation>> fighterJetParts = Maps.newHashMap();
+        createTransformListForPart(SpecialModels.SPORTS_PLANE_BODY, fighterJetParts, fighterJetTransformGlobal);
+        createFuelablePartTransforms(SpecialModels.FUEL_PORT_CLOSED, EntityFighterJet.class, fighterJetParts, fighterJetTransformGlobal);
+        createKeyPortTransforms(SpecialModels.KEY_HOLE, EntityFighterJet.class, fighterJetParts, fighterJetTransformGlobal);
+        createTransformListForPart(SpecialModels.SPORTS_PLANE_WING, fighterJetParts, fighterJetTransformGlobal,
+                MatrixTransformation.createTranslation(0, -0.1875, 0.5),
+                MatrixTransformation.createRotation(180, 0, 0, 1),
+                MatrixTransformation.createTranslation(0.875, 0.0625, 0),
+                MatrixTransformation.createRotation(5, 1, 0, 0));
+        createTransformListForPart(SpecialModels.SPORTS_PLANE_WING, fighterJetParts, fighterJetTransformGlobal,
+                MatrixTransformation.createTranslation(0.875, -0.1875, 0.5),
+                MatrixTransformation.createRotation(-5, 1, 0, 0));
+        fighterJetTransformGlobal.add(MatrixTransformation.createTranslation(0, -0.5, 0));
+        fighterJetTransformGlobal.add(MatrixTransformation.createScale(0.85));
+        createTransformListForPart(SpecialModels.SPORTS_PLANE_WHEEL_COVER, fighterJetParts, fighterJetTransformGlobal,
+                MatrixTransformation.createTranslation(0, -0.1875, 1.5));
+        createTransformListForPart(SpecialModels.SPORTS_PLANE_LEG, fighterJetParts, fighterJetTransformGlobal,
+                MatrixTransformation.createTranslation(0, -0.1875, 1.5));
+        createTransformListForPart(SpecialModels.SPORTS_PLANE_WHEEL_COVER, fighterJetParts, fighterJetTransformGlobal,
+                MatrixTransformation.createTranslation(-0.46875, -0.1875, 0.125));
+        createTransformListForPart(SpecialModels.SPORTS_PLANE_LEG, fighterJetParts, fighterJetTransformGlobal,
+                MatrixTransformation.createTranslation(-0.46875, -0.1875, 0.125),
+                MatrixTransformation.createRotation(-100, 0, 1, 0));
+        createTransformListForPart(SpecialModels.SPORTS_PLANE_WHEEL_COVER, fighterJetParts, fighterJetTransformGlobal,
+                MatrixTransformation.createTranslation(0.46875, -0.1875, 0.125));
+        createTransformListForPart(SpecialModels.SPORTS_PLANE_LEG, fighterJetParts, fighterJetTransformGlobal,
+                MatrixTransformation.createTranslation(0.46875, -0.1875, 0.125),
+                MatrixTransformation.createRotation(100, 0, 1, 0));
+        registerEntityStatic(EntityFighterJet.class, fighterJetParts);
 
         // Golf Cart
         List<MatrixTransformation> golfCartTransformGlobal = Lists.newArrayList();
