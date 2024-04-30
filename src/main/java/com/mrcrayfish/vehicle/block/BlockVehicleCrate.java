@@ -201,7 +201,7 @@ public class BlockVehicleCrate extends BlockRotatedObject
                     	tooltip.add(TextFormatting.RED + "The graphic designer was on vacation.");
                     }
                     
-                    if(blockEntityTag.getString("vehicle").contains("brickmobile") || blockEntityTag.getString("vehicle").contains("forklift"))
+                    if(blockEntityTag.getString("vehicle").contains("brickmobile") || blockEntityTag.getString("vehicle").contains("forklift") || blockEntityTag.getString("vehicle").contains("fighter_jet"))
                     {
                     	tooltip.add(TextFormatting.AQUA + "Added by the Mesabrook Development Team");
                     }

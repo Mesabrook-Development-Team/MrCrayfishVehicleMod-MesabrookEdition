@@ -372,7 +372,7 @@ public class VehicleProperties
         properties = new VehicleProperties();
         properties.setBodyPosition(new PartPosition(0, 11 * 0.0625, -8 * 0.0625, 0, 0, 0, 1.8));
         properties.setFuelPortPosition(new PartPosition(6, 4, -2, 1, 90.0, 0, 0.25));
-        properties.setKeyPortPosition(new PartPosition(0, 3.75, 12.5, -67.5, 0, 0, 0.5));
+        properties.setKeyPortPosition(new PartPosition(-2.5, -0.7, 10.6, -67.5, 0, 0, 0.5));
         properties.setDisplayPosition(new PartPosition(0.85F));
         properties.addSeat(new Seat(new Vec3d(0, 6, 0), true));
         VehicleProperties.setProperties(EntityFighterJet.class, properties);

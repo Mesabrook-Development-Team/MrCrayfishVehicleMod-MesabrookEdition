@@ -5,8 +5,10 @@ import com.mrcrayfish.vehicle.entity.EngineType;
 import com.mrcrayfish.vehicle.entity.EntityPlane;
 import com.mrcrayfish.vehicle.init.ModSounds;
 
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class EntityFighterJet extends EntityPlane implements IEntityRaytraceable
@@ -43,6 +45,12 @@ public class EntityFighterJet extends EntityPlane implements IEntityRaytraceable
         prevWheelRotation = wheelRotation;
         prevPropellerRotation = propellerRotation;
 
+        if(this.isMoving())
+        {
+        	makeSmoke();
+        }
+        
+        
         if(this.onGround)
         {
             wheelSpeed = currentSpeed / 30F;
@@ -66,6 +74,32 @@ public class EntityFighterJet extends EntityPlane implements IEntityRaytraceable
             propellerSpeed *= 0.95F;
         }
         propellerRotation += propellerSpeed;
+    }
+    
+    public void makeSmoke()
+    {
+    	if(!this.world.isRemote)
+    	{
+    		return;
+    	}
+    	
+    	double yaw = Math.toRadians(rotationYaw);
+        double pitch = Math.toRadians(rotationPitch);
+        
+        double xOffset = -Math.sin(yaw) * Math.cos(pitch);
+        double yOffset = -Math.sin(pitch);
+        double zOffset = Math.cos(yaw) * Math.cos(pitch);
+        
+        double particleX = posX + xOffset * 0.5; // Adjust the distance as needed
+        double particleY = posY + yOffset * 0.5;
+        double particleZ = posZ + zOffset * 0.5;
+        
+//        spawnSmoke(particleX + 1.65, particleY + 1, particleZ - 3.55);
+    }
+    
+    public void spawnSmoke(double x, double y, double z)
+    {
+    	world.spawnParticle(EnumParticleTypes.CLOUD, x, y, z, 0, 0, 0);
     }
 
     @Override

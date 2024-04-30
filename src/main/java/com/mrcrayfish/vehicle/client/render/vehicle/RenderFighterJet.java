@@ -53,28 +53,6 @@ public class RenderFighterJet extends AbstractRenderVehicle<EntityFighterJet>
             this.renderWheel(entity, -7.5F * 0.0625F, -3 * 0.0625F, 2 * 0.0625F, -100F, partialTicks);
         }
         GlStateManager.popMatrix();
-        
-        //TODO: @CSX8600, may need your help with this one.
-//        if(entity.isMoving())
-//        {
-//            for (int i = 0; i < 10; i++)
-//            {
-//                double offsetX = Minecraft.getMinecraft().world.rand.nextGaussian() * 0.02D;
-//                double offsetY = Minecraft.getMinecraft().world.rand.nextGaussian() * 0.02D;
-//                double offsetZ = Minecraft.getMinecraft().world.rand.nextGaussian() * 0.06D;
-//
-//                Minecraft.getMinecraft().world.spawnParticle(EnumParticleTypes.CLOUD,
-//                        entity.posX + 3,
-//                        entity.posY + 1.0,
-//                        entity.posZ + 0.5,
-//                        offsetX, offsetY + 0.4, offsetZ);
-//                Minecraft.getMinecraft().world.spawnParticle(EnumParticleTypes.CLOUD,
-//                        entity.posX + 3,
-//                        entity.posY + 1.0,
-//                        entity.posZ + -0.45,
-//                        offsetX, offsetY + 0.4, offsetZ);
-//            }
-//        }
     }
 
     private void renderWheel(EntityFighterJet vehicle, float offsetX, float offsetY, float offsetZ, float legRotation, float partialTicks)
