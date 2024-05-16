@@ -45,9 +45,9 @@ public class EntityFighterJet extends EntityPlane implements IEntityRaytraceable
         prevWheelRotation = wheelRotation;
         prevPropellerRotation = propellerRotation;
 
-        if(this.isMoving())
+        if(this.getAcceleration() == AccelerationDirection.FORWARD || this.isMoving())
         {
-        	makeSmoke();
+        	//makeSmoke();
         }
         
         
@@ -76,6 +76,7 @@ public class EntityFighterJet extends EntityPlane implements IEntityRaytraceable
         propellerRotation += propellerSpeed;
     }
     
+    //TODO: @CSX8600 Please make the smoke emit from behind both jet engines.
     public void makeSmoke()
     {
     	if(!this.world.isRemote)
@@ -90,16 +91,17 @@ public class EntityFighterJet extends EntityPlane implements IEntityRaytraceable
         double yOffset = -Math.sin(pitch);
         double zOffset = Math.cos(yaw) * Math.cos(pitch);
         
-        double particleX = posX + xOffset * 0.5; // Adjust the distance as needed
-        double particleY = posY + yOffset * 0.5;
-        double particleZ = posZ + zOffset * 0.5;
+        double particleX = posX * 1; // Adjust the distance as needed
+        double particleY = posY * 1;
+        double particleZ = posZ;
         
-//        spawnSmoke(particleX + 1.65, particleY + 1, particleZ - 3.55);
+        spawnSmoke(particleX, particleY, particleZ);
     }
     
     public void spawnSmoke(double x, double y, double z)
     {
     	world.spawnParticle(EnumParticleTypes.CLOUD, x, y, z, 0, 0, 0);
+    	System.out.println(x + y + z);
     }
 
     @Override

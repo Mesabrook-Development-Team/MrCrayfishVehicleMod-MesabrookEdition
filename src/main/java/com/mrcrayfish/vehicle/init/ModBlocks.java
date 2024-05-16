@@ -43,12 +43,12 @@ public class ModBlocks
         Block blockBoostRamp = new BlockBoostRamp();
         register(blockBoostRamp, new ItemBoostRamp(blockBoostRamp));
         register(new BlockSteepBoostRamp());
-        register(new BlockLiquid(BlockNames.FUELIUM, ModFluids.FUELIUM, Material.WATER, 148, 242, 45), null);
-        register(new BlockLiquid(BlockNames.ENDER_SAP, ModFluids.ENDER_SAP, Material.WATER, 10, 93, 80), null);
-        register(new BlockLiquid(BlockNames.BLAZE_JUICE, ModFluids.BLAZE_JUICE, Material.WATER, 254, 198, 0), null);
+        //register(new BlockLiquid(BlockNames.FUELIUM, ModFluids.FUELIUM, Material.WATER, 148, 242, 45), null);
+        //register(new BlockLiquid(BlockNames.ENDER_SAP, ModFluids.ENDER_SAP, Material.WATER, 10, 93, 80), null);
+        //register(new BlockLiquid(BlockNames.BLAZE_JUICE, ModFluids.BLAZE_JUICE, Material.WATER, 254, 198, 0), null);
         register(new BlockGasPump());
-        register(new BlockFluidExtractor());
-        register(new BlockFluidMixer());
+        //register(new BlockFluidExtractor());
+        //register(new BlockFluidMixer());
         register(new BlockFluidPipe());
         register(new BlockFluidPump());
         register(new BlockFuelDrum(BlockNames.FUEL_DRUM, 40000));

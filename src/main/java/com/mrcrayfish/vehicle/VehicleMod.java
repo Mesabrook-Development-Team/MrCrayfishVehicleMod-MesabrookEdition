@@ -59,15 +59,15 @@ public class VehicleMod
         public void displayAllRelevantItems(NonNullList<ItemStack> items)
         {
             super.displayAllRelevantItems(items);
-            items.add(FluidUtil.getFilledBucket(new FluidStack(ModFluids.BLAZE_JUICE, 1)));
-            items.add(FluidUtil.getFilledBucket(new FluidStack(ModFluids.ENDER_SAP, 1)));
-            items.add(FluidUtil.getFilledBucket(new FluidStack(ModFluids.FUELIUM, 1)));
+//            items.add(FluidUtil.getFilledBucket(new FluidStack(ModFluids.BLAZE_JUICE, 1)));
+//            items.add(FluidUtil.getFilledBucket(new FluidStack(ModFluids.ENDER_SAP, 1)));
+//            items.add(FluidUtil.getFilledBucket(new FluidStack(ModFluids.FUELIUM, 1)));
         }
     };
 
     static
     {
-        FluidRegistry.enableUniversalBucket();
+//        FluidRegistry.enableUniversalBucket();
     }
 
     @Mod.EventHandler
@@ -75,7 +75,7 @@ public class VehicleMod
     {
         MinecraftForge.EVENT_BUS.register(new CommonEvents());
 
-        ModFluids.register();
+        //ModFluids.register();
         PacketHandler.init();
         CustomDataSerializers.register();
         HeldVehicleDataHandler.register();
