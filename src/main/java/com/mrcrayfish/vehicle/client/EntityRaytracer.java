@@ -380,7 +380,7 @@ public class EntityRaytracer
         List<MatrixTransformation> brickMobileTransformGlobal = Lists.newArrayList();
         createBodyTransforms(brickMobileTransformGlobal, EntityBrickmobile.class);
         HashMap<RayTracePart, List<MatrixTransformation>> brickMobileParts = Maps.newHashMap();
-        createTransformListForPart(SpecialModels.FORKLIFT, brickMobileParts, brickMobileTransformGlobal);
+        createTransformListForPart(SpecialModels.BRICKMOBILE, brickMobileParts, brickMobileTransformGlobal);
         createTransformListForPart(SpecialModels.GO_KART_STEERING_WHEEL, brickMobileParts, brickMobileTransformGlobal,
         		MatrixTransformation.createTranslation(-0.2825F, 0.225F, 1.0625F),
                 MatrixTransformation.createRotation(-67.5F, 1, 0, 0),
@@ -391,6 +391,22 @@ public class EntityRaytracer
                 MatrixTransformation.createTranslation(0.0, 0.5, 1.35));
         createFuelablePartTransforms(SpecialModels.FUEL_PORT_CLOSED, EntityBrickmobile.class, brickMobileParts, brickMobileTransformGlobal);
         registerEntityStatic(EntityBrickmobile.class, brickMobileParts);
+        
+        // Pickup Truck
+        List<MatrixTransformation> pickupTruckTransformGlobal = Lists.newArrayList();
+        createBodyTransforms(pickupTruckTransformGlobal, EntityPickupTruck.class);
+        HashMap<RayTracePart, List<MatrixTransformation>> pickupTruckParts = Maps.newHashMap();
+        createTransformListForPart(SpecialModels.FORKLIFT, pickupTruckParts, pickupTruckTransformGlobal);
+        createTransformListForPart(SpecialModels.GO_KART_STEERING_WHEEL, pickupTruckParts, pickupTruckTransformGlobal,
+        		MatrixTransformation.createTranslation(-0.2825F, 0.225F, 1.0625F),
+                MatrixTransformation.createRotation(-67.5F, 1, 0, 0),
+                MatrixTransformation.createTranslation(0.0F, -0.02F, 0.0F),
+                MatrixTransformation.createScale(0.75F));
+        createTransformListForPart(SpecialModels.TOW_BAR, pickupTruckParts,
+                MatrixTransformation.createRotation(180, 0, 1, 0),
+                MatrixTransformation.createTranslation(0.0, 0.5, 1.35));
+        createFuelablePartTransforms(SpecialModels.FUEL_PORT_CLOSED, EntityPickupTruck.class, pickupTruckParts, pickupTruckTransformGlobal);
+        registerEntityStatic(EntityPickupTruck.class, pickupTruckParts);
 
         // Speed boat
         List<MatrixTransformation> speedBoatTransformGlobal = Lists.newArrayList();

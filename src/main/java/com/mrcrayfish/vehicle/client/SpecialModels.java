@@ -75,6 +75,7 @@ public enum SpecialModels
     FIGHTER_JET_WING("fighter_jet_wing"),
     FIGHTER_JET_WHEEL_COVER("fighter_jet_wheel_cover"),
     FIGHTER_JET_LEG("fighter_jet_leg"),
+    PICKUP_TRUCK("truck_body"),
 
     COUCH(new ModelResourceLocation("cfm:couch", "colour=14,facing=east,type=both"), false),
     BLADE(new ModelResourceLocation("cfm:ceiling_fan_fans", "inventory"), false),

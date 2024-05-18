@@ -188,6 +188,15 @@ public class VehicleRecipes
         builder.addMaterial(new ItemStack(Items.REDSTONE, 18));
         builder.addMaterial(new ItemStack(ModItems.PANEL, 32));
         mapBuilder.put(EntityFighterJet.class, builder.build());
+        
+        /* Pickup Truck */
+        builder = new Builder();
+        builder.addMaterial(new ItemStack(Items.IRON_INGOT, 45));
+        builder.addMaterial(new ItemStack(ModItems.PANEL, 12));
+        builder.addMaterial(new ItemStack(Blocks.GLASS_PANE, 4));
+        builder.addMaterial(new ItemStack(Blocks.WOOL, 2, 7));
+        builder.addMaterial(new ItemStack(Items.REDSTONE, 32));
+        mapBuilder.put(EntityPickupTruck.class, builder.build());
 
         /* Tractor */
         builder = new Builder();

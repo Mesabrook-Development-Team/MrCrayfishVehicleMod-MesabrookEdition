@@ -58,6 +58,26 @@ public class VehicleProperties
         properties.addSeat(new Seat(new Vec3d(0, 7.5, -10), true));
         VehicleProperties.setProperties(EntityForklift.class, properties);
         
+        /* Pickup Truck */
+        properties = new VehicleProperties();
+        properties.setAxleOffset(2F);
+        properties.setWheelOffset(4.3F);
+        properties.setBodyPosition(new PartPosition(1.433));
+        properties.setFuelPortPosition(new PartPosition(10.6, 3.75, -7.9, 0, 90, 0, 0.25));
+        properties.setHeldOffset(new Vec3d(3.0, 1.0, 0.0));
+        properties.setTowBarPosition(new Vec3d(0.0, 0.0, -40.0));
+        properties.setDisplayPosition(new PartPosition(1.35F)); 
+        properties.addWheel(Wheel.Side.LEFT, Wheel.Position.FRONT, 9F, 16.5F, 1.8F, true, true);
+        properties.addWheel(Wheel.Side.RIGHT, Wheel.Position.FRONT, 9F, 16.5F, 1.8F, true, true);
+        properties.addWheel(Wheel.Side.LEFT, Wheel.Position.REAR, 9F, -15.7F, 1.8F, false, true);
+        properties.addWheel(Wheel.Side.RIGHT, Wheel.Position.REAR, 9F, -15.7F, 1.8F, false, true);
+        properties.setFrontAxelVec(0, 12);
+        properties.setRearAxelVec(0, -12);
+        properties.addSeat(new Seat(new Vec3d(-5, 1, -1), true));
+        properties.addSeat(new Seat(new Vec3d(5, 1, -1), false));
+
+        VehicleProperties.setProperties(EntityPickupTruck.class, properties);
+        
         /* Brick */
         properties = new VehicleProperties();
         properties.setAxleOffset(-1.7F);

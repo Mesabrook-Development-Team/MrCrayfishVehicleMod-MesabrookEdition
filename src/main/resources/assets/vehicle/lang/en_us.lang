@@ -104,6 +104,7 @@ entity.vehicle.dirt_bike=Dirt Bike
 entity.vehicle.forklift.name=Forklift
 entity.vehicle.brickmobile.name=Brick
 entity.vehicle.fighter_jet.name=ROMAF-1 Fighter Jet
+entity.vehicle.pickup_truck.name=Pickup Truck
 
 vehicle.config.title=MrCrayfish's Vehicle Mod Config
 vehicle.config.client=Client

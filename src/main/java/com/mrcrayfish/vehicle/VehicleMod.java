@@ -122,6 +122,7 @@ public class VehicleMod
         registerVehicle("forklift", EntityForklift.class);
         registerVehicle("brickmobile", EntityBrickmobile.class);
         registerVehicle("fighter_jet", EntityFighterJet.class);
+        registerVehicle("pickup_truck", EntityPickupTruck.class);
 
         if(Loader.isModLoaded("cfm"))
         {
