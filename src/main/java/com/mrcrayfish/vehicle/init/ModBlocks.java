@@ -30,6 +30,7 @@ public class ModBlocks
     public static final Block FLUID_PUMP = null;
     public static final Block FUEL_DRUM = null;
     public static final Block INDUSTRIAL_FUEL_DRUM = null;
+    public static final Block CREATIVE_FUEL_DRUM = null;
     public static final Block WORKSTATION = null;
     public static final Block VEHICLE_CRATE = null;
     public static final Block JACK = null;
@@ -53,6 +54,7 @@ public class ModBlocks
         register(new BlockFluidPump());
         register(new BlockFuelDrum(BlockNames.FUEL_DRUM, 40000));
         register(new BlockFuelDrum(BlockNames.INDUSTRIAL_FUEL_DRUM, 75000));
+        register(new BlockFuelDrum(BlockNames.CREATIVE_FUEL_DRUM, Integer.MAX_VALUE));
         register(new BlockWorkstation());
         Block blockVehicleCrate = new BlockVehicleCrate();
         register(blockVehicleCrate, (ItemBlock) new ItemBlock(blockVehicleCrate).setMaxStackSize(1));

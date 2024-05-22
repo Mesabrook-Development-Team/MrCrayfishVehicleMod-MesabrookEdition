@@ -108,6 +108,11 @@ public class FuelDrumRenderer extends TileEntitySpecialRenderer<TileEntityFuelDr
 
         GlStateManager.scale(0.5, 0.5, 0.5);
         String name = stack.getLocalizedName() + " - " + tank.getFluidAmount() + "mB";
+        if(tank.getFluidAmount() > 75000)
+        {
+        	name = stack.getLocalizedName() + " - " + "Infinite" + " mB";
+        }
+        
         int nameWidth = fontRendererIn.getStringWidth(name) / 2;
         fontRendererIn.drawString(name, -nameWidth, -14, -1);
 

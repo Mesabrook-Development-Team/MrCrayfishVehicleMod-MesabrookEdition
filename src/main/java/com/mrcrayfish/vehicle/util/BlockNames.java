@@ -22,6 +22,7 @@ public class BlockNames
     public static final String FLUID_PUMP = PREFIX + "fluid_pump";
     public static final String FUEL_DRUM = PREFIX + "fuel_drum";
     public static final String INDUSTRIAL_FUEL_DRUM = PREFIX + "industrial_fuel_drum";
+    public static final String CREATIVE_FUEL_DRUM = PREFIX + "creative_fuel_drum";
     public static final String WORKSTATION = PREFIX + "workstation";
     public static final String VEHICLE_CRATE = PREFIX + "vehicle_crate";
     public static final String JACK = PREFIX + "jack";

@@ -1,6 +1,8 @@
 package com.mrcrayfish.vehicle.block;
 
+import com.mrcrayfish.vehicle.init.ModBlocks;
 import com.mrcrayfish.vehicle.init.ModFluids;
+import com.mrcrayfish.vehicle.init.ModItems;
 import com.mrcrayfish.vehicle.item.ItemJerryCan;
 import com.mrcrayfish.vehicle.tileentity.TileEntityFuelDrum;
 import com.mrcrayfish.vehicle.util.Bounds;
@@ -57,8 +59,16 @@ public class BlockFuelDrum extends BlockRotatedObject
     {
         if(GuiScreen.isShiftKeyDown())
         {
-            String info = I18n.format("tile.vehicle.fuel_drum.info");
-            tooltip.addAll(Minecraft.getMinecraft().fontRenderer.listFormattedStringToWidth(info, 150));
+        	if(stack.getItem().getUnlocalizedName().contains("creative_"))
+        	{
+        		String info = "An infinite source of fluids. Can only be spawned in through Creative Mode or by commands.";
+        		tooltip.addAll(Minecraft.getMinecraft().fontRenderer.listFormattedStringToWidth(info, 150));
+        	}
+        	else
+        	{
+        		String info = I18n.format("tile.vehicle.fuel_drum.info");
+        		tooltip.addAll(Minecraft.getMinecraft().fontRenderer.listFormattedStringToWidth(info, 150));
+        	}
         }
         else
         {
@@ -83,6 +93,30 @@ public class BlockFuelDrum extends BlockRotatedObject
             {
                 return true;
             }
+            
+        	if(state.getBlock() == ModBlocks.CREATIVE_FUEL_DRUM)
+        	{
+        		TileEntity tileEntity = worldIn.getTileEntity(pos);
+        		if(tileEntity != null && tileEntity.hasCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null))
+        		{
+        			IFluidHandler handler = tileEntity.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null);
+        			if(handler != null)
+        			{
+        				if(handler instanceof FluidTank)
+        				{
+        					FluidTank tank = (FluidTank) handler;
+        					FluidStack fluidStack = tank.getFluid();
+        					fluidStack.amount = Integer.MAX_VALUE;
+        					if(fluidStack.amount < Integer.MAX_VALUE)
+        					{
+        						fluidStack.amount = Integer.MAX_VALUE;
+        						tank.fill(fluidStack, true);
+        						playerIn.sendMessage(new TextComponentString("Fill"));
+        					}
+        				}
+        			}
+        		}
+        	}
 
             if(stack.getItem() instanceof ItemJerryCan)
             {
@@ -137,7 +171,14 @@ public class BlockFuelDrum extends BlockRotatedObject
             				{
             					String fuelName = tank.getFluid().getLocalizedName();
             					int fuelAmount = tank.getFluidAmount();
-            					playerIn.sendMessage(new TextComponentString(fuelName + ": " + fuelAmount + "mB"));
+            					if(fuelAmount >= Integer.MAX_VALUE)
+            					{
+            						playerIn.sendMessage(new TextComponentString(fuelName + ": " + "Infinite (" + fuelAmount + " mB)"));
+            					}
+            					else
+            					{
+            						playerIn.sendMessage(new TextComponentString(fuelName + ": " + fuelAmount + "mB"));
+            					}
             				}
             			}
             		}

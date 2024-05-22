@@ -195,7 +195,7 @@ public class BlockVehicleCrate extends BlockRotatedObject
                 {
                     vehicle = I18n.format("entity.vehicle." + vehicle.split(":")[1] + ".name");
                     tooltip.add(TextFormatting.BLUE + vehicle);
-                    
+
                     if(blockEntityTag.getString("vehicle").contains("brickmobile"))
                     {
                     	tooltip.add(TextFormatting.RED + "The graphic designer was on vacation.");

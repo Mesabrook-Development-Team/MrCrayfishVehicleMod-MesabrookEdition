@@ -53,6 +53,7 @@ tile.vehicle.fluid_pipe.name=Fluid Pipe
 tile.vehicle.fluid_pump.name=Fluid Pump
 tile.vehicle.fuel_drum.name=Drum
 tile.vehicle.industrial_fuel_drum.name=Industrial Drum
+tile.vehicle.creative_fuel_drum.name=§dCreative Drum§r
 tile.vehicle.vehicle_crate.name=Vehicle Crate
 tile.vehicle.workstation.name=Workstation
 tile.vehicle.jack.name=Jack
