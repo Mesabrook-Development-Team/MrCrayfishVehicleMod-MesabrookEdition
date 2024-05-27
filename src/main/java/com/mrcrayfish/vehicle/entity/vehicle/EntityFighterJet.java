@@ -1,14 +1,25 @@
 package com.mrcrayfish.vehicle.entity.vehicle;
 
+import com.mrcrayfish.vehicle.VehicleConfig;
 import com.mrcrayfish.vehicle.client.EntityRaytracer.IEntityRaytraceable;
 import com.mrcrayfish.vehicle.entity.EngineType;
 import com.mrcrayfish.vehicle.entity.EntityPlane;
+import com.mrcrayfish.vehicle.entity.EntityPoweredVehicle.AccelerationDirection;
 import com.mrcrayfish.vehicle.init.ModSounds;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntityArrow;
+import net.minecraft.entity.projectile.EntityTippedArrow;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemArrow;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 
 public class EntityFighterJet extends EntityPlane implements IEntityRaytraceable
@@ -25,7 +36,7 @@ public class EntityFighterJet extends EntityPlane implements IEntityRaytraceable
     {
         super(worldIn);
         this.setAccelerationSpeed(1.5F);
-        this.setMaxSpeed(35F);
+        this.setMaxSpeed(30F);
         this.setMaxTurnAngle(35);
         this.setTurnSensitivity(3);
         this.setSize(3F, 1.6875F);
@@ -45,11 +56,13 @@ public class EntityFighterJet extends EntityPlane implements IEntityRaytraceable
         prevWheelRotation = wheelRotation;
         prevPropellerRotation = propellerRotation;
 
-        if(this.getAcceleration() == AccelerationDirection.FORWARD || this.isMoving())
+        if(this.getControllingPassenger() != null && this.getAcceleration() == AccelerationDirection.FORWARD)
         {
-        	//makeSmoke();
+            for(int i = 0; i < 4; i++)
+            {
+                world.spawnParticle(EnumParticleTypes.CLOUD, posX - 0.25 + 0.5 * rand.nextGaussian(), posY + 0.5 * rand.nextGaussian(), posZ - 0.25 + 0.5 * rand.nextGaussian(), 0, 0, 0, 0);
+            }	
         }
-        
         
         if(this.onGround)
         {
@@ -74,34 +87,51 @@ public class EntityFighterJet extends EntityPlane implements IEntityRaytraceable
             propellerSpeed *= 0.95F;
         }
         propellerRotation += propellerSpeed;
+        
+        if (this.getControllingPassenger() instanceof EntityPlayer && VehicleConfig.SERVER.experimentalVehicleFeatures)
+        {
+        	EntityPlayer player = (EntityPlayer) this.getControllingPassenger();
+        	EnumHand hand = player.getActiveHand().MAIN_HAND;
+        	ItemStack arrows = player.getHeldItem(hand);
+        	
+        	if(player.isSwingInProgress && arrows.getItem() instanceof ItemArrow && this.isFlying())
+        	{
+        		shootArrow(player);
+        	}
+        }
     }
     
-    //TODO: @CSX8600 Please make the smoke emit from behind both jet engines.
-    public void makeSmoke()
+    private void shootArrow(EntityPlayer player)
     {
-    	if(!this.world.isRemote)
-    	{
-    		return;
-    	}
-    	
-    	double yaw = Math.toRadians(rotationYaw);
-        double pitch = Math.toRadians(rotationPitch);
-        
-        double xOffset = -Math.sin(yaw) * Math.cos(pitch);
-        double yOffset = -Math.sin(pitch);
-        double zOffset = Math.cos(yaw) * Math.cos(pitch);
-        
-        double particleX = posX * 1; // Adjust the distance as needed
-        double particleY = posY * 1;
-        double particleZ = posZ;
-        
-        spawnSmoke(particleX, particleY, particleZ);
-    }
-    
-    public void spawnSmoke(double x, double y, double z)
-    {
-    	world.spawnParticle(EnumParticleTypes.CLOUD, x, y, z, 0, 0, 0);
-    	System.out.println(x + y + z);
+    	if (!this.world.isRemote)
+        {
+            ItemStack arrowStack = new ItemStack(Items.ARROW);
+            EntityArrow entityArrow = new EntityTippedArrow(this.world, player);
+            
+            // Get the direction the jet is facing
+            float yaw = this.rotationYaw;
+            float pitch = this.rotationPitch;
+            
+            // Calculate the direction vector
+            double x = -MathHelper.sin(yaw * 0.017453292F) * MathHelper.cos(pitch * 0.017453292F);
+            double y = -MathHelper.sin(pitch * 0.017453292F);
+            double z = MathHelper.cos(yaw * 0.017453292F) * MathHelper.cos(pitch * 0.017453292F);
+            
+            // Set the arrow's position and motion
+            entityArrow.setPosition(this.posX + x, this.posY + this.getMountedYOffset() + y, this.posZ + z);
+            
+            // Calculate current speed of the jet
+            double jetSpeed = Math.sqrt(this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ);
+            
+            // Set the arrow's motion to be faster than the jet
+            double arrowSpeedMultiplier = 6;  // Arrow speed multiplier to ensure it's faster than the jet
+            entityArrow.motionX = x * jetSpeed * arrowSpeedMultiplier;
+            entityArrow.motionY = y * jetSpeed * arrowSpeedMultiplier;
+            entityArrow.motionZ = z * jetSpeed * arrowSpeedMultiplier;
+            
+            // Spawn the arrow
+            this.world.spawnEntity(entityArrow);
+        }
     }
 
     @Override

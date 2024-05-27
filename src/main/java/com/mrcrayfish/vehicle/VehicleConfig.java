@@ -78,6 +78,10 @@ public class VehicleConfig
         @Config.LangKey(Reference.MOD_ID + ".config.erver.fuel_consumption_modifier")
         @Config.RangeDouble(min = 0.0)
         public double fuelConsumptionFactor = 1.0;
+        
+        @Config.Name("[Mesabrook Fork] Experimental Vehicle Features")
+        @Config.Comment("Enables in-development vehicle features. May be buggy. [default: false]")
+        public boolean experimentalVehicleFeatures = false;
     }
 
     public static class Client
