@@ -168,6 +168,22 @@ public class VehicleProperties
         properties.addSeat(new Seat(new Vec3d(0, 8, -2), true));
         properties.addSeat(new Seat(new Vec3d(0, 9, -9)));
         VehicleProperties.setProperties(EntityDirtBike.class, properties);
+        
+        /* Bicycle */
+        properties = new VehicleProperties();
+        properties.setAxleOffset(-3.0F);
+        properties.setWheelOffset(7F);
+        properties.setBodyPosition(new PartPosition(1.1));
+        properties.setEnginePosition(new PartPosition(0, 1, 0, 0, 180, 0, 0.85));
+        properties.setHeldOffset(new Vec3d(0.0, 3.5, 0.0));
+        properties.setDisplayPosition(new PartPosition(1.4F));
+        properties.setTrailerOffset(new Vec3d(0, -0.0625, -0.3125));
+        properties.addWheel(Wheel.Side.NONE, Wheel.Position.FRONT, 0.0F, 2.0F, 14.08F, 0.2F, 2.5F, 2.5F, false, false);
+        properties.addWheel(Wheel.Side.NONE, Wheel.Position.REAR, 0.0F, 0.0F, -9.61F, 0.2F, 2.5F, 2.5F, true, true);
+        properties.setFrontAxelVec(0, 14.08);
+        properties.setRearAxelVec(0, -11.61);
+        properties.addSeat(new Seat(new Vec3d(0, 8, -2), true));
+        VehicleProperties.setProperties(EntityBicycle.class, properties);
 
         /* Dune Buggy */
         properties = new VehicleProperties();

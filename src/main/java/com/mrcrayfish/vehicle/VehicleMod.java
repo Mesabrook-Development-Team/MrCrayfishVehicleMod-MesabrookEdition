@@ -123,6 +123,11 @@ public class VehicleMod
         registerVehicle("brickmobile", EntityBrickmobile.class);
         registerVehicle("fighter_jet", EntityFighterJet.class);
         registerVehicle("pickup_truck", EntityPickupTruck.class);
+        
+        if(VehicleConfig.SERVER.experimentalVehicleFeatures)
+        {
+        	registerVehicle("bicycle", EntityBicycle.class);
+        }
 
         if(Loader.isModLoaded("cfm"))
         {

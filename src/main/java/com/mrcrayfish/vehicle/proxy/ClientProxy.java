@@ -115,6 +115,7 @@ public class ClientProxy implements Proxy
         registerVehicleRender(EntityBrickmobile.class, new RenderLandVehicleWrapper<>(new RenderBrickmobile()));
         registerVehicleRender(EntityFighterJet.class, new RenderPlaneWrapper<>(new RenderFighterJet()));
         registerVehicleRender(EntityPickupTruck.class, new RenderLandVehicleWrapper<>(new RenderPickupTruck()));
+        registerVehicleRender(EntityBicycle.class, new RenderMotorcycleWrapper<>(new RenderBicycle()));
 
 
         /* Register Mod Exclusive Vehicles */
