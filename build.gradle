@@ -35,15 +35,16 @@ minecraft {
 }
 
 repositories {
-    maven {
-        name = "CurseForge"
-        url = "https://minecraft.curseforge.com/api/maven/"
+	maven {
+        url = "https://cursemaven.com"
     }
 }
 
 dependencies {
-    compile 'obfuscate:Obfuscate:0.2.6:1.12.2'
-    compile 'controllable:Controllable:1.12.2:0.8.0'
+    compile 'curse.maven:Obfuscate-289380:2625165'
+    compile 'curse.maven:Controllable-317269:2880163'
+	compile 'curse.maven:ImmersiveEngineering-231951:2974106'
+	compile 'curse.maven:ImmersivePetroleum-268250:3382321'
 }
 
 processResources {
