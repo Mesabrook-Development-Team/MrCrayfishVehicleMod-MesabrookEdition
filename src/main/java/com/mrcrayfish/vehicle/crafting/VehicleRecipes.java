@@ -2,6 +2,8 @@ package com.mrcrayfish.vehicle.crafting;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
+import com.mrcrayfish.vehicle.Reference;
+import com.mrcrayfish.vehicle.VehicleMod;
 import com.mrcrayfish.vehicle.entity.EntityVehicle;
 import com.mrcrayfish.vehicle.entity.trailer.*;
 import com.mrcrayfish.vehicle.entity.vehicle.*;
@@ -17,6 +19,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.oredict.OreDictionary;
 
 import javax.annotation.Nullable;
 import java.util.LinkedHashSet;
@@ -35,16 +38,17 @@ public class VehicleRecipes
         ImmutableMap.Builder<Class<? extends EntityVehicle>, VehicleRecipe> mapBuilder = ImmutableMap.builder();
 
         Builder builder;
-
+		
         /* Aluminum Boat */
         builder = new Builder();
-        builder.addMaterial(new ItemStack(Items.IRON_INGOT, 80));
+        builder.addMaterial(OreDictionaryHelper.getItemStackFromOreDictionary("ingotAluminum", 40));
+        builder.addMaterial(OreDictionaryHelper.getItemStackFromOreDictionary("ingotSteel", 40));
         builder.addMaterial(new ItemStack(ModItems.PANEL, 10));
         mapBuilder.put(EntityAluminumBoat.class, builder.build());
 
         /* ATV */
         builder = new Builder();
-        builder.addMaterial(new ItemStack(Items.IRON_INGOT, 64));
+        builder.addMaterial(OreDictionaryHelper.getItemStackFromOreDictionary("ingotSteel", 64));
         builder.addMaterial(new ItemStack(Blocks.IRON_BARS, 4));
         builder.addMaterial(new ItemStack(Blocks.WOOL, 4, 15));
         builder.addMaterial(new ItemStack(Items.REDSTONE, 6));
@@ -53,14 +57,14 @@ public class VehicleRecipes
 
         /* Bumper Car */
         builder = new Builder();
-        builder.addMaterial(new ItemStack(Items.IRON_INGOT, 36));
+        builder.addMaterial(OreDictionaryHelper.getItemStackFromOreDictionary("ingotSteel", 36));
         builder.addMaterial(new ItemStack(Items.REDSTONE, 8));
         builder.addMaterial(new ItemStack(ModItems.PANEL, 8));
         mapBuilder.put(EntityBumperCar.class, builder.build());
 
         /* Dirt Bike */
         builder = new Builder();
-        builder.addMaterial(new ItemStack(Items.IRON_INGOT, 36));
+        builder.addMaterial(OreDictionaryHelper.getItemStackFromOreDictionary("ingotSteel", 36));
         builder.addMaterial(new ItemStack(Blocks.WOOL, 2, EnumDyeColor.GRAY.getMetadata()));
         mapBuilder.put(EntityDirtBike.class, builder.build());
 
@@ -73,13 +77,13 @@ public class VehicleRecipes
 
         /* Go Kart */
         builder = new Builder();
-        builder.addMaterial(new ItemStack(Items.IRON_INGOT, 36));
+        builder.addMaterial(OreDictionaryHelper.getItemStackFromOreDictionary("ingotSteel", 36));
         builder.addMaterial(new ItemStack(ModItems.PANEL, 4));
         mapBuilder.put(EntityGoKart.class, builder.build());
 
         /* Golf Cart */
         builder = new Builder();
-        builder.addMaterial(new ItemStack(Items.IRON_INGOT, 128));
+        builder.addMaterial(OreDictionaryHelper.getItemStackFromOreDictionary("ingotSteel", 128));
         builder.addMaterial(new ItemStack(Blocks.IRON_BARS, 4));
         builder.addMaterial(new ItemStack(Blocks.WOOL, 8, 0));
         builder.addMaterial(new ItemStack(Items.REDSTONE, 12));
@@ -88,26 +92,26 @@ public class VehicleRecipes
 
         /* Jet Ski */
         builder = new Builder();
-        builder.addMaterial(new ItemStack(Items.IRON_INGOT, 80));
+        builder.addMaterial(OreDictionaryHelper.getItemStackFromOreDictionary("ingotSteel", 80));
         builder.addMaterial(new ItemStack(ModItems.PANEL, 10));
         mapBuilder.put(EntityJetSki.class, builder.build());
 
         /* Lawn Mower */
         builder = new Builder();
-        builder.addMaterial(new ItemStack(Items.IRON_INGOT, 64));
+        builder.addMaterial(OreDictionaryHelper.getItemStackFromOreDictionary("ingotSteel", 64));
         builder.addMaterial(new ItemStack(Blocks.WOOL, 4, 15));
         builder.addMaterial(new ItemStack(ModItems.PANEL, 8));
         mapBuilder.put(EntityLawnMower.class, builder.build());
 
         /* Mini Bike */
         builder = new Builder();
-        builder.addMaterial(new ItemStack(Items.IRON_INGOT, 24));
+        builder.addMaterial(OreDictionaryHelper.getItemStackFromOreDictionary("ingotSteel", 24));
         builder.addMaterial(new ItemStack(Blocks.WOOL, 2, 15));
         mapBuilder.put(EntityMiniBike.class, builder.build());
 
         /* Mini Bus */
         builder = new Builder();
-        builder.addMaterial(new ItemStack(Items.IRON_INGOT, 128));
+        builder.addMaterial(OreDictionaryHelper.getItemStackFromOreDictionary("ingotSteel", 128));
         builder.addMaterial(new ItemStack(Blocks.WOOL, 5, EnumDyeColor.GRAY.getMetadata()));
         builder.addMaterial(new ItemStack(Blocks.GLASS_PANE, 9));
         builder.addMaterial(new ItemStack(Items.REDSTONE, 12));
@@ -116,7 +120,7 @@ public class VehicleRecipes
         
         /* Forklift */
         builder = new Builder();
-        builder.addMaterial(new ItemStack(Items.IRON_INGOT, 128));
+        builder.addMaterial(OreDictionaryHelper.getItemStackFromOreDictionary("ingotSteel", 128));
         builder.addMaterial(new ItemStack(Blocks.WOOL, 5, EnumDyeColor.GRAY.getMetadata()));
         builder.addMaterial(new ItemStack(Blocks.GLASS_PANE, 9));
         builder.addMaterial(new ItemStack(Items.REDSTONE, 12));
@@ -125,7 +129,7 @@ public class VehicleRecipes
         
         /* Brick */
         builder = new Builder();
-        builder.addMaterial(new ItemStack(Items.IRON_INGOT, 420));
+        builder.addMaterial(OreDictionaryHelper.getItemStackFromOreDictionary("ingotSteel", 420));
         builder.addMaterial(new ItemStack(Blocks.WOOL, 5, EnumDyeColor.GRAY.getMetadata()));
         builder.addMaterial(new ItemStack(Blocks.GLASS_PANE, 2));
         builder.addMaterial(new ItemStack(Items.REDSTONE, 69));
@@ -134,7 +138,7 @@ public class VehicleRecipes
 
         /* Moped */
         builder = new Builder();
-        builder.addMaterial(new ItemStack(Items.IRON_INGOT, 36));
+        builder.addMaterial(OreDictionaryHelper.getItemStackFromOreDictionary("ingotSteel", 36));
         builder.addMaterial(new ItemStack(Blocks.IRON_BARS, 2));
         builder.addMaterial(new ItemStack(Blocks.WOOL, 4, 15));
         builder.addMaterial(new ItemStack(ModItems.PANEL, 6));
@@ -142,7 +146,7 @@ public class VehicleRecipes
 
         /* Off-Roader */
         builder = new Builder();
-        builder.addMaterial(new ItemStack(Items.IRON_INGOT, 150));
+        builder.addMaterial(OreDictionaryHelper.getItemStackFromOreDictionary("ingotSteel", 150));
         builder.addMaterial(new ItemStack(Blocks.WOOL, 8, 15));
         builder.addMaterial(new ItemStack(Blocks.GLASS_PANE, 6));
         builder.addMaterial(new ItemStack(Items.REDSTONE, 12));
@@ -151,14 +155,14 @@ public class VehicleRecipes
 
         /* Shopping Cart */
         builder = new Builder();
-        builder.addMaterial(new ItemStack(Items.IRON_INGOT, 8));
+        builder.addMaterial(OreDictionaryHelper.getItemStackFromOreDictionary("ingotSteel", 8));
         builder.addMaterial(new ItemStack(Blocks.IRON_BARS, 4));
         builder.addMaterial(new ItemStack(Items.DYE, 2, EnumDyeColor.RED.getDyeDamage()));
         mapBuilder.put(EntityShoppingCart.class, builder.build());
 
         /* Smart Car */
         builder = new Builder();
-        builder.addMaterial(new ItemStack(Items.IRON_INGOT, 80));
+        builder.addMaterial(OreDictionaryHelper.getItemStackFromOreDictionary("ingotSteel", 80));
         builder.addMaterial(new ItemStack(Blocks.WOOL, 8, 15));
         builder.addMaterial(new ItemStack(Blocks.GLASS_PANE, 6));
         builder.addMaterial(new ItemStack(Items.REDSTONE, 8));
@@ -167,7 +171,7 @@ public class VehicleRecipes
 
         /* Speed Boat */
         builder = new Builder();
-        builder.addMaterial(new ItemStack(Items.IRON_INGOT, 80));
+        builder.addMaterial(OreDictionaryHelper.getItemStackFromOreDictionary("ingotSteel", 80));
         builder.addMaterial(new ItemStack(Blocks.WOOL, 8, 15));
         builder.addMaterial(new ItemStack(Blocks.GLASS_PANE, 4));
         builder.addMaterial(new ItemStack(ModItems.PANEL, 10));
@@ -175,7 +179,7 @@ public class VehicleRecipes
 
         /* Sports Plane */
         builder = new Builder();
-        builder.addMaterial(new ItemStack(Items.IRON_INGOT, 180));
+        builder.addMaterial(OreDictionaryHelper.getItemStackFromOreDictionary("ingotSteel", 180));
         builder.addMaterial(new ItemStack(Blocks.GLASS_PANE, 16));
         builder.addMaterial(new ItemStack(Items.REDSTONE, 18));
         builder.addMaterial(new ItemStack(ModItems.PANEL, 32));
@@ -183,7 +187,7 @@ public class VehicleRecipes
         
         /* Fighter Jet */
         builder = new Builder();
-        builder.addMaterial(OreDictionaryHelper.getItemStackFromOreDictionary("ingotSteel", 180));
+        builder.addMaterial(OreDictionaryHelper.getItemStackFromOreDictionary("blockSteel", 69));
         builder.addMaterial(new ItemStack(Blocks.GLASS_PANE, 16));
         builder.addMaterial(new ItemStack(Items.REDSTONE, 18));
         builder.addMaterial(new ItemStack(ModItems.PANEL, 32));
@@ -191,7 +195,7 @@ public class VehicleRecipes
         
         /* Pickup Truck */
         builder = new Builder();
-        builder.addMaterial(new ItemStack(Items.IRON_INGOT, 45));
+        builder.addMaterial(OreDictionaryHelper.getItemStackFromOreDictionary("ingotSteel", 45));
         builder.addMaterial(new ItemStack(ModItems.PANEL, 12));
         builder.addMaterial(new ItemStack(Blocks.GLASS_PANE, 4));
         builder.addMaterial(new ItemStack(Blocks.WOOL, 2, 7));
@@ -200,7 +204,7 @@ public class VehicleRecipes
 
         /* Tractor */
         builder = new Builder();
-        builder.addMaterial(new ItemStack(Items.IRON_INGOT, 128));
+        builder.addMaterial(OreDictionaryHelper.getItemStackFromOreDictionary("ingotSteel", 128));
         builder.addMaterial(new ItemStack(Blocks.WOOL, 4, 15));
         builder.addMaterial(new ItemStack(Items.REDSTONE, 8));
         builder.addMaterial(new ItemStack(ModItems.PANEL, 16));
@@ -208,28 +212,28 @@ public class VehicleRecipes
 
         /* Vehicle Trailer */
         builder = new Builder();
-        builder.addMaterial(new ItemStack(Items.IRON_INGOT, 48));
+        builder.addMaterial(OreDictionaryHelper.getItemStackFromOreDictionary("ingotSteel", 48));
         builder.addMaterial(new ItemStack(ModItems.PANEL, 2));
         mapBuilder.put(EntityVehicleTrailer.class, builder.build());
 
         builder = new Builder();
-        builder.addMaterial(new ItemStack(Items.IRON_INGOT, 36));
+        builder.addMaterial(OreDictionaryHelper.getItemStackFromOreDictionary("ingotSteel", 36));
         builder.addMaterial(new ItemStack(ModItems.PANEL, 2));
         builder.addMaterial(new ItemStack(Blocks.CHEST));
         mapBuilder.put(EntityStorageTrailer.class, builder.build());
 
         builder = new Builder();
-        builder.addMaterial(new ItemStack(Items.IRON_INGOT, 42));
+        builder.addMaterial(OreDictionaryHelper.getItemStackFromOreDictionary("ingotSteel", 42));
         builder.addMaterial(new ItemStack(ModItems.PANEL, 8));
         mapBuilder.put(EntitySeederTrailer.class, builder.build());
 
         builder = new Builder();
-        builder.addMaterial(new ItemStack(Items.IRON_INGOT, 36));
+        builder.addMaterial(OreDictionaryHelper.getItemStackFromOreDictionary("ingotSteel", 36));
         builder.addMaterial(new ItemStack(ModItems.PANEL, 8));
         mapBuilder.put(EntityFertilizerTrailer.class, builder.build());
 
         builder = new Builder();
-        builder.addMaterial(new ItemStack(Items.IRON_INGOT, 48));
+        builder.addMaterial(OreDictionaryHelper.getItemStackFromOreDictionary("ingotSteel", 48));
         builder.addMaterial(new ItemStack(ModItems.PANEL, 16));
         builder.addMaterial(new ItemStack(Blocks.GLASS_PANE, 2));
         mapBuilder.put(EntityFluidTrailer.class, builder.build());
@@ -239,20 +243,21 @@ public class VehicleRecipes
             /* Bath */
             builder = new Builder();
             builder.addMaterial(new ItemStack(Item.getByNameOrId("cfm:bath_bottom"), 1));
-            builder.addMaterial(new ItemStack(Items.NETHER_STAR, 1));
+            builder.addMaterial(new ItemStack(Items.NETHER_STAR, 64));
             mapBuilder.put(EntityBath.class, builder.build());
 
             /* Couch */
             builder = new Builder();
             builder.addMaterial(new ItemStack(Item.getByNameOrId("cfm:couch_jeb"), 1));
-            builder.addMaterial(new ItemStack(Items.IRON_INGOT, 8));
+            builder.addMaterial(OreDictionaryHelper.getItemStackFromOreDictionary("ingotSteel", 8));
             mapBuilder.put(EntityCouch.class, builder.build());
 
             /* Sofacopter */
             builder = new Builder();
             builder.addMaterial(new ItemStack(Item.getByNameOrId("cfm:couch"), 1, 14));
             builder.addMaterial(new ItemStack(Item.getByNameOrId("cfm:ceiling_fan")));
-            builder.addMaterial(new ItemStack(Items.IRON_INGOT, 16));
+            builder.addMaterial(OreDictionaryHelper.getItemStackFromOreDictionary("ingotSteel", 16));
+            builder.addMaterial(new ItemStack(Items.NETHER_STAR, 64));
             mapBuilder.put(EntitySofacopter.class, builder.build());
         }
 

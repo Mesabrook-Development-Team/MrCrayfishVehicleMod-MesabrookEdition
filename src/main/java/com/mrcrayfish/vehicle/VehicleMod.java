@@ -33,6 +33,9 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * Author: MrCrayfish
  */
@@ -46,6 +49,8 @@ public class VehicleMod
     public static Proxy proxy;
 
     public int nextEntityId;
+    
+    public static final Logger logger = LogManager.getLogger(Reference.MOD_ID);
 
     public static final CreativeTabs CREATIVE_TAB = new CreativeTabs("tabVehicle")
     {
